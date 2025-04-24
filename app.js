@@ -1,5 +1,5 @@
-import { displayPasswords, showDetails, deletePassword, editPassword } from './storage.js';
-import { setupUI } from './ui.js';
+import { displayPasswords, deletePassword, editPassword } from './storage.js';
+import { setupUI, showDetails } from './ui.js';
 
 const passwords = JSON.parse(localStorage.getItem('passwords')) || [];
 
@@ -11,7 +11,7 @@ document.getElementById('sifreFormu').addEventListener('submit', function(e) {
   e.preventDefault();
 
   const appName = document.getElementById('uygulamaAdi').value.trim();
-  const username = document.getElementById('kullaniciAdi').value.trim();
+  const username = document.getElementById('kullaniciAdi').value.trim(); 
   const password = document.getElementById('sifre').value.trim();
 
   if (appName === "" || username === "" || password === "") {
