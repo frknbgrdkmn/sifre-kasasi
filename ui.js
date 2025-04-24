@@ -28,3 +28,17 @@ export function setupUI() {
     toggleBtn.addEventListener("click", togglePassword);
   }
 }
+
+
+
+
+export function showDetails(appName, username, password) {
+  const modalBody = document.getElementById('modalBody');
+  modalBody.innerHTML = `
+    <strong>Uygulama:</strong> ${appName}<br>
+    <strong>Kullanıcı Adı:</strong> ${username}<br>
+    <strong>Şifre:</strong> ${password}
+  `;
+  const myModal = new bootstrap.Modal(document.getElementById('detailsModal'));
+  myModal.show();
+}
