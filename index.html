@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+  <title>Şifre Kasası</title>
+</head>
+
+<body class="m-5">
+  <div class="container">
+    <div class="card p-4">
+
+      <h1 class="text-center mb-4"><i class="bi bi-key-fill"></i> Şifre Kasası</h1>
+
+      <form id="sifreFormu">
+        <div class="mb-3">
+          <label for="uygulamaAdi" class="form-label"><i class="bi bi-app-indicator"></i> Uygulama Adı:</label>
+          <input type="text" id="uygulamaAdi" class="form-control input-with-icon" placeholder="Örn. İnstagram" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="kullaniciAdi" class="form-label"><i class="bi bi-person-fill"></i> Kullanıcı Adı:</label>
+          <input type="text" id="kullaniciAdi" class="form-control input-with-icon" placeholder="Örn. furkan@gmail.com" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="sifre" class="form-label"><i class="bi bi-lock-fill"></i> Şifre:</label>
+          <input type="password" id="sifre" class="form-control input-with-icon" placeholder="Şifre giriniz" required>
+          <button type="button" class="btn btn-secondary mt-2" id="sifreGosterBtn">
+            <i class="bi bi-eye"></i> Göster/Gizle
+          </button>
+        </div>
+
+        <div class="d-flex justify-content-between">
+          <button type="button" class="btn btn-primary" id="gucluSifreBtn">
+            <i class="bi bi-shuffle"></i> Güçlü Şifre Öner
+          </button>
+          <button type="submit" class="btn btn-success">
+            <i class="bi bi-save"></i> Kaydet
+          </button>
+        </div>
+      </form>
+
+      <h2 class="mt-5"><i class="bi bi-card-list"></i> Kayıtlı Bilgiler</h2>
+      <ul id="sifreListesi" class="list-group mt-3"></ul>
+    </div>
+  </div>
+
+  <!-- Modal detay gösterme ekranı -->
+  <div class="modal fade" id="detailsModal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="detailsModalLabel">Şifre Detayları</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="modalBody">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for editing password -->
+  <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editModalLabel">Şifre Düzenle</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="mb-3">
+            <label for="editUygulamaAdi" class="form-label">Uygulama Adı:</label>
+            <input type="text" id="editUygulamaAdi" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="editKullaniciAdi" class="form-label">Kullanıcı Adı:</label>
+            <input type="text" id="editKullaniciAdi" class="form-control" required>
+          </div>
+
+          <div class="mb-3">
+            <label for="editSifre" class="form-label">Şifre:</label>
+            <input type="password" id="editSifre" class="form-control" required>
+            <button type="button" class="btn btn-secondary mt-2" id="editSifreGosterBtn">
+              <i class="bi bi-eye"></i> Göster/Gizle
+            </button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+          <button type="button" class="btn btn-primary" id="saveEditBtn">Kaydet</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for delete confirmation -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="deleteModalLabel">Silme Onayı</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Bu şifreyi silmek istediğinizden emin misiniz?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Vazgeç</button>
+        <button type="button" class="btn btn-danger" id="confirmDeleteBtn">Sil</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>
